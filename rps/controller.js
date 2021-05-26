@@ -1,33 +1,25 @@
 var game = new Game();
+
+
 // main entry point
 function playGame() {
+    //*********************************ADD CODE HERE *************************************/
+    // Call the function game.newGame() to reset the counts.
 
-    // reset the game
-    game.newGame();
+    //*********************************ADD CODE HERE *************************************/
+    // Get the number of rounds from the user, and store it in a variable called numberOfRounds.
+    // Use game.IsNumerOfRoundsValid() to validate the user input.
+    // If the input is valid, use game.setNumberOfRounds(numberOfRounds) to set the number of rounds for the game 
+    //  >> Else, try to get the number of rounds for the suer again
 
-    var isValid = false;
-    // get the number of rounds
-    while (!isValid) {
-        var numberOfRounds = +prompt(
-            "how many rounds should we play? (must enter an integer greater than zero and no more than 5)",
-            "3"
-        );
 
-        if(game.isNumberOfRoundsValid(numberOfRounds)){
-            game.setNumberOfRounds(numberOfRounds);
-            isValid = true;
-        }
-    }
+    //*********************************ADD CODE HERE *************************************/
+    // Call playRound() with a parameter of the round count (1 thru numberOfRounds) for each round 
 
-    // play the rounds
-    for (let index = 0; index < numberOfRounds; index++) {
-        playRound(index + 1);
-    }
 
-    // log out the final score
-    console.log(
-        `final scores: ${game.countOfPlayerWins} player wins ${game.countOfComputerWins} computer wins ${game.countOfTies} ties`
-    );
+    //*********************************ADD CODE HERE *************************************/
+    // Display the Final Score from the properties stored in the Game object
+
 }
 
 /**
@@ -35,15 +27,9 @@ function playGame() {
  * @param {*} roundNumber
  */
 function playRound(roundNumber) {
-
-    //Display Current Round Info
-    console.log(`round: ${roundNumber}`);
-    if (roundNumber > 1) {
-        console.log(
-            `score: ${game.countOfPlayerWins} player wins ${game.countOfComputerWins} computer wins ${game.countOfTies} ties`
-        );
-    }
-
+    //*********************************ADD CODE HERE *************************************/
+    // Display the Current Score to the User
+    
     //Prompt for Player Selection
     var playerSelection = getPlayerSelection();
     var round = new Round(playerSelection);
@@ -51,25 +37,10 @@ function playRound(roundNumber) {
     //Play the Round
     var outcome = round.determineWinner();
 
-    //Log the Results
-    console.log(
-        `player selected ${round.playerSelection} and computer selected ${round.computerSelection}`
-    );
+    //*********************************ADD CODE HERE *************************************/
+    // Display the Round Results from the properties stored in the Round object
 
-    if (outcome === Outcomes.PLAYER_WINS) {
-        game.incrementPlayerWins();
-        console.log("result: player wins");
-    } else if (outcome === Outcomes.COMPUTER_WINS) {
-        game.incrementComputerWins();
-        console.log("result: computer wins");
-    } else {
-        game.incrementCountOfTies();
-        console.log("result: tie");
-    }
 }
-
-
-
 
 
 
@@ -78,27 +49,8 @@ function playRound(roundNumber) {
  * @returns Selections
  */
 function getPlayerSelection() {
-    var playerSelection;
-
-    while (!isSelectionValid(playerSelection)) {
-        playerSelection = prompt(
-            "make your selection (must be 'rock', 'paper', or 'scissors')"
-        ).toLowerCase();
-    }
-
-    return playerSelection;
+    
+    //*********************************ADD CODE HERE *************************************/
+    // Prompt, Validate and Return the player selection. This must be in the form of "rock", "paper", or "scissors" exactly
 }
 
-
-/**
- * tests the selection and determines if it is a valid value
- * @param {*} selection
- * @returns boolean
- */
-function isSelectionValid(selection) {
-    return (
-        selection === Selections.ROCK ||
-        selection === Selections.PAPER ||
-        selection === Selections.SCISSORS
-    );
-}

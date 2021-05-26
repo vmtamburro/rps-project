@@ -29,14 +29,8 @@ class Round{
      * @returns Selections
      */
     getComputerSelection() {
-        var randomIndex = Math.floor(Math.random() * 3);
-        if (randomIndex === 0) {
-            return Selections.ROCK;
-        } else if (randomIndex === 1) {
-            return Selections.PAPER;
-        } else {
-            return Selections.SCISSORS;
-        }
+        //*********************************ADD CODE HERE *************************************/
+        // Use Math.floor and select a random Selections enumerator from above 
     }
 
     /**
@@ -46,34 +40,8 @@ class Round{
      * @returns Outcomes
      */
     determineWinner() {
-        // handle ties first
-        if (this.playerSelection === this.computerSelection) {
-            return Outcomes.TIE;
-        }
-
-        if (this.playerSelection === Selections.ROCK) {
-            if (this.computerSelection === Selections.PAPER) {
-                return Outcomes.COMPUTER_WINS;
-            } else {
-                return Outcomes.PLAYER_WINS;
-            }
-        }
-
-        if (this.playerSelection === Selections.PAPER) {
-            if (this.computerSelection === Selections.SCISSORS) {
-                return Outcomes.COMPUTER_WINS;
-            } else {
-                return Outcomes.PLAYER_WINS;
-            }
-        }
-
-        if (this.playerSelection === Selections.SCISSORS) {
-            if (this.computerSelection === Selections.ROCK) {
-                return Outcomes.COMPUTER_WINS;
-            } else {
-                return Outcomes.PLAYER_WINS;
-            }
-        }
+        //*********************************ADD CODE HERE *************************************/
+        // Use this.playerSelection and this.computerSelection to return the appropriate outcome from the Outcomes enumerator above.
     }
 
 
